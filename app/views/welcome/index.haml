@@ -1,0 +1,14 @@
+.row
+  .col-md-12.text-center.grub_url_form_container
+    .flash_error= flash[:error]
+
+    = form_tag grub_url_path do
+      .row
+        = text_field_tag :url, nil, placeholder: 'type url here'
+        = submit_tag 'grab!', class: 'btn btn-primary btn-xs'
+      .row
+        = radio_button_tag 'output_format', 'html', true
+        = label_tag 'output_format_html', 'html'
+
+        = radio_button_tag 'output_format', 'pdf'
+        = label_tag 'output_format_pdf', 'pdf'

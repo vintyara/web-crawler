@@ -1,0 +1,17 @@
+@import "bootstrap";
+
+.flash_error {
+  color: red;
+}
+
+.grub_url_form_container {
+  margin-top: 150px;
+
+  input#url {
+    width: 300px;
+  }
+
+  input#output_format_pdf {
+    margin-left: 40px;
+  }
+}
