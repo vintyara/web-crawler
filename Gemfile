@@ -14,5 +14,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'turbolinks'
 
+gem 'nokogiri'
+
 gem 'pry', group: :development
 

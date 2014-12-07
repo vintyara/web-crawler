@@ -1,10 +1,17 @@
 class WelcomeController < ApplicationController
+
+  require 'crawler'
+
   def index
   end
 
   def grub_url
     redirect_to :root unless valid_url
+    c = Crawler.new(params[:url], params[:output_format])
+    c.process
 
+    flash[:info] = 'Successfully'
+    redirect_to :root
   end
 
   private
