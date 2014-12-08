@@ -15,6 +15,8 @@ gem 'twitter-bootstrap-rails'
 gem 'turbolinks'
 
 gem 'nokogiri'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 gem 'pry', group: :development
 

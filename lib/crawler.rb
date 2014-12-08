@@ -10,9 +10,18 @@ class Crawler
 
   def process
     save_html
+    make_pdf
   end
 
   private
+
+  def make_pdf
+    #kit = PDFKit.new(@html.to_s, :page_size => 'A4')
+    #Dir["#{@working_dir}/css/*"].each { |css_file| kit.stylesheets << css_file }
+
+    kit = PDFKit.new(@url, :page_size => 'A4')
+    kit.to_pdf
+  end
 
   def save_html(with_css: true, with_images: true)
     Dir.mkdir(@working_dir) unless Dir.exist?(@working_dir)

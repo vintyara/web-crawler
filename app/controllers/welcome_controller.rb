@@ -2,25 +2,27 @@ class WelcomeController < ApplicationController
 
   require 'crawler'
 
+  before_filter :validate_url, only: :grub_url
+
   def index
   end
 
   def grub_url
-    redirect_to :root unless valid_url
-    c = Crawler.new(params[:url], params[:output_format])
-    c.process
+    crawler = Crawler.new(params[:url], params[:output_format])
+    result = crawler.process
 
-    flash[:info] = 'Successfully'
-    redirect_to :root
+    respond_to do |format|
+      format.pdf { send_data result, filename: 'result.pdf' }
+      format.tgz { raise 'to be continued' }
+    end
   end
 
   private
 
-  def valid_url
+  def validate_url
     is_valid = true
     is_valid = false if params[:url].blank?
 
-    flash[:error] = 'Invalid URL' and return false unless is_valid
-    true
+    flash[:error] = 'Invalid URL' and redirect_to(:root) unless is_valid
   end
 end
