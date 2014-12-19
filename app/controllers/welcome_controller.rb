@@ -2,13 +2,13 @@ class WelcomeController < ApplicationController
 
   before_filter :validate_url, only: :grub_url
 
-  include Crawler
+  include Web
 
   def index
   end
 
   def grub_url
-    crawler = WebCrawler.new(params[:url], params[:format])
+    crawler = Web::Crawler.new(params[:url], output_format: params[:format])
     result = crawler.process
 
     respond_to do |format|
@@ -22,6 +22,7 @@ class WelcomeController < ApplicationController
   def validate_url
     is_valid = true
     is_valid = false if params[:url].blank?
+    is_valid = false unless params[:url].match(/^(http|https):*/)
 
     flash[:error] = 'Invalid URL' and redirect_to(:root) unless is_valid
   end

@@ -1,7 +1,7 @@
-module Crawler
+module Web
   extend ActiveSupport::Concern
 
-  class WebCrawler
+  class Crawler
     require 'open-uri'
     require 'rubygems/package'
     require 'zlib'
