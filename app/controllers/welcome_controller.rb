@@ -1,19 +1,19 @@
 class WelcomeController < ApplicationController
 
-  require 'crawler'
-
   before_filter :validate_url, only: :grub_url
+
+  include Crawler
 
   def index
   end
 
   def grub_url
-    crawler = Crawler.new(params[:url], params[:output_format])
+    crawler = WebCrawler.new(params[:url], params[:format])
     result = crawler.process
 
     respond_to do |format|
       format.pdf { send_data result, filename: 'result.pdf' }
-      format.tgz { raise 'to be continued' }
+      format.tgz { send_data result, filename: 'result.tgz' }
     end
   end
 

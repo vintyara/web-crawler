@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    archive (0.0.6)
+      ffi (~> 1.9.3)
     arel (5.0.1.20140414130214)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
@@ -41,6 +43,7 @@ GEM
     coffee-script-source (1.8.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    ffi (1.9.6)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -124,6 +127,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  archive
   bootstrap-sass (~> 3.3.1)
   coffee-rails (~> 4.0.0)
   haml

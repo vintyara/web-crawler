@@ -17,6 +17,7 @@ gem 'turbolinks'
 gem 'nokogiri'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
+gem 'archive-tar-minitar'
 
 gem 'pry', group: :development
 
